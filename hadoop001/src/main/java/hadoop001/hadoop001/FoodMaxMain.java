@@ -22,6 +22,7 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.Logger;
 
+
 public class FoodMaxMain extends Configured implements Tool {
 
     private static final Logger LOG = Logger.getLogger(FoodMaxMain.class);
@@ -69,31 +70,32 @@ public class FoodMaxMain extends Configured implements Tool {
         int reduceTasks = cmdline.hasOption(NUM_REDUCERS) ? Integer
                 .parseInt(cmdline.getOptionValue(NUM_REDUCERS)) : 1;
 
-        LOG.info("Tool name: " + BigramCount.class.getSimpleName());
+        LOG.info("Tool name: " + FoodMaxMain.class.getSimpleName());
         LOG.info(" - input path: " + inputPath);
         LOG.info(" - output path: " + outputPath);
         LOG.info(" - num reducers: " + reduceTasks);
 
         Job job = new Job(getConf());
-        job.setJobName(BigramCount.class.getSimpleName());
-        job.setJarByClass(BigramCount.class);
+        job.setJobName(FoodMaxMain.class.getSimpleName());
+        job.setJarByClass(FoodMaxMain.class);
 
         job.setNumReduceTasks(reduceTasks);
 
         FileInputFormat.setInputPaths(job, new Path(inputPath));
         FileOutputFormat.setOutputPath(job, new Path(outputPath));
         
-//        FileInputFormat.addInputPath(job, new Path(args[0]));
+//      FileInputFormat.addInputPath(job, new Path(args[0]));
 //		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        job.setMapOutputKeyClass(BigramWritable.class);
+        job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         job.setOutputFormatClass(TextOutputFormat.class);
 
-        job.setMapperClass(BigramCountMapper.class);
-        job.setReducerClass(BigramCountReducer.class);
+        job.setMapperClass(FoodMaxMapper.class);
+        job.setCombinerClass(FoodMaxCombiner.class);
+        job.setReducerClass(FoodMaxReducer.class);
 
         Path outputDir = new Path(outputPath);
         FileSystem.get(getConf()).delete(outputDir, true);
@@ -109,6 +111,6 @@ public class FoodMaxMain extends Configured implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
-        ToolRunner.run(new BigramCount(), args);
+        ToolRunner.run(new FoodMaxMain(), args);
     }
 }
