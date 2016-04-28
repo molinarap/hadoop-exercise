@@ -39,6 +39,14 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 
 ### Project's libs
 
+- **Download**: [http://www.java2s.com/Code/Jar/CatalogJar.htm]
+- **Import** this libs in project:
+
+	- hadoop-core
+	- commons-cli
+	- apache-logging-log4j
+	- apache-commons-lang
+
 ### Init Project
 
 1. clone project with: 
