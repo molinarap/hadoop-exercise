@@ -1,7 +1,6 @@
-package hadoop001.hadoop001;
+package hadoop001;
 
 import java.io.IOException;
-import java.util.Iterator;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
@@ -13,10 +12,10 @@ public class FoodMaxCombiner extends Reducer<Text, IntWritable, Text, IntWritabl
     
     @Override
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+
         int sum = 0;
-        Iterator<IntWritable> iter = values.iterator();
-        while (iter.hasNext()) {
-            sum += iter.next().get();
+        for (IntWritable val : values) {
+          sum += val.get();
         }
         SUM.set(sum);
         context.write(new Text(key.toString()), SUM);
