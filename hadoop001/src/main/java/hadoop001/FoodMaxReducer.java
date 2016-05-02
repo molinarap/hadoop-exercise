@@ -16,7 +16,7 @@ public class FoodMaxReducer extends Reducer<Text, IntWritable, Text, Text> {
         for (IntWritable val : values) {
             v = val.get();
         }
-        String new_value = new_item[1] + " " + v + ", ";
+        String new_value = new_item[1] + " " + v;
         String new_date = new_item[0];
         context.write(new Text(new_date), new Text(new_value));
     }
