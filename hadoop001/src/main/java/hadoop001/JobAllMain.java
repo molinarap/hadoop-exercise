@@ -11,6 +11,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
@@ -20,13 +21,13 @@ public class JobAllMain extends Configured implements Tool{
 	public int run(String[] args) throws Exception {
 		Path input = new Path(args[0]);
 		Path output = new Path(args[1]);
-		Path temp1 = new Path(args[2]);
+		Path temp = new Path(args[2]);
 		Configuration conf = getConf();
 
 		Job job1 = new Job(conf, "Job1Main");
 
 		FileInputFormat.addInputPath(job1, input);
-		FileOutputFormat.setOutputPath(job1, temp1);
+		FileOutputFormat.setOutputPath(job1, temp);
 
 		job1.setJarByClass(Job1Main.class);
 
@@ -35,9 +36,14 @@ public class JobAllMain extends Configured implements Tool{
 		job1.setReducerClass(Job1Reducer.class);
 
 		job1.setInputFormatClass(TextInputFormat.class);
+		job1.setOutputFormatClass(TextOutputFormat.class);
+
 		job1.setMapOutputKeyClass(Text.class);
 		job1.setMapOutputValueClass(IntWritable.class);
 
+		job1.setOutputKeyClass(Text.class);
+		job1.setOutputValueClass(IntWritable.class);
+		
 		boolean succ = job1.waitForCompletion(true);
 		if (! succ) {
 			System.out.println("Job1 failed, exiting");
@@ -46,7 +52,7 @@ public class JobAllMain extends Configured implements Tool{
 
 		Job job2 = new Job(conf, "Job2Main");
 		
-		FileInputFormat.setInputPaths(job2, temp1);
+		FileInputFormat.setInputPaths(job2, temp);
 		FileOutputFormat.setOutputPath(job2, output);
 
 		job2.setJarByClass(Job2Main.class);
@@ -54,10 +60,15 @@ public class JobAllMain extends Configured implements Tool{
 		job2.setMapperClass(Job2Mapper.class);
 		job2.setReducerClass(Job2Reducer.class);
 
-		job2.setInputFormatClass(KeyValueTextInputFormat.class);
+		job2.setInputFormatClass(TextInputFormat.class);
+		job2.setOutputFormatClass(TextOutputFormat.class);
+
 		job2.setMapOutputKeyClass(Text.class);
 		job2.setMapOutputValueClass(Text.class);
 
+		job2.setOutputKeyClass(Text.class);
+		job2.setOutputValueClass(Text.class);
+		
 		job2.setNumReduceTasks(1);
 
 		succ = job2.waitForCompletion(true);
