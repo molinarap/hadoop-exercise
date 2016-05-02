@@ -12,7 +12,7 @@ public class Job2Reducer extends Reducer<Text, Text, Text, Text> {
     	
     	String all = "";
         for (Text val : values) {
-        	all = all + val.toString() + ", ";
+        	all = all + val.toString() + " ";
         }
         
         all = all.substring(0, all.length()-2);

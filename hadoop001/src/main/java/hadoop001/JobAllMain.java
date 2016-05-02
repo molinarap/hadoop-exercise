@@ -18,7 +18,7 @@ public class JobAllMain extends Configured implements Tool{
 
 	public int run(String[] args) throws Exception {
 		Path input = new Path(args[0]);
-		Path temp1 = new Path("temp");
+		Path temp1 = new Path("temp4");
 		Path output = new Path(args[1]);
 		Configuration conf = getConf();
 
@@ -54,7 +54,7 @@ public class JobAllMain extends Configured implements Tool{
 
 		job2.setInputFormatClass(KeyValueTextInputFormat.class);
 		job2.setMapOutputKeyClass(Text.class);
-		job2.setMapOutputValueClass(IntWritable.class);
+		job2.setMapOutputValueClass(Text.class);
 
 		job2.setNumReduceTasks(1);
 

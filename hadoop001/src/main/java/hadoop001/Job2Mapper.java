@@ -18,12 +18,12 @@ public class Job2Mapper extends Mapper<LongWritable, Text, Text, Text> {
 		String date = null;
 		String prod = null;
 
-		if (line.charAt(6) == ',') {
+		if (line.charAt(6) == '\t') {
 			date = line.substring(0, 6);
 			prod = line.substring(7);
 		}
 
-		if (line.charAt(7) == ',') {
+		if (line.charAt(7) == '\t') {
 			date = line.substring(0, 7);
 			prod = line.substring(8);
 		}
