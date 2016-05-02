@@ -62,3 +62,29 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 	```
 	git pull origin pull
 	```
+
+### Use Project
+- Start Hadoop with:
+```
+hstart
+```
+- Create hadoop working dir in terminal with command:
+
+```
+hadoop dfs -mkdir /food
+```
+```
+hadoop dfs -mkdir /food/input
+```
+- Insert input file (.txt) in hadoop inpur dir in terminal with command:
+ 
+```
+hdfs dfs -put [nome file].txt /input/food.txt
+```
+- Get file jar by eclipse dir "target"
+- Insert name of main method in command line and launch by terminal:
+
+```
+hadoop jar hadoop001-0.0.1-SNAPSHOT.jar hadoop001/[nome metodo main] /food/input/food.txt /food/output/[nome metodo]_result /food/[nome metodo]_temp
+```
+- Can see the result in localhost:50070 in section "Browse Directory"
