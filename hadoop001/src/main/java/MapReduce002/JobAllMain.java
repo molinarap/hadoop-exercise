@@ -1,4 +1,4 @@
-package hadoop001;
+package MapReduce002;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;

@@ -1,4 +1,4 @@
-package hadoop001;
+package MapReduce002;
 
 import java.io.IOException;
 
