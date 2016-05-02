@@ -1,6 +1,6 @@
 # hadoop-exercise
 
-### Project
+## Project
 Si supponga di avere a disposizione un file di testo generato da un sistema di billing di una catena di
 supermercati che contiene, per ciascuno scontrino, una riga con la data e la lista dei prodotti
 acquistati, separati da una virgola. Per esempio:
@@ -37,7 +37,7 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 	......
 	```
 
-### Project's libs
+## Project's libs
 
 - **Download**: [http://www.java2s.com/Code/Jar/CatalogJar.htm]
 - **Import** this libs in project:
@@ -47,7 +47,7 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 	- apache-logging-log4j
 	- apache-commons-lang
 
-### Init Project
+## Init Project
 
 1. clone project with: 
 	```
@@ -63,7 +63,7 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 	git pull origin pull
 	```
 
-### Use Project
+## Use Project
 - Start Hadoop with:
 ```
 hstart
@@ -88,3 +88,7 @@ hdfs dfs -put [nome file].txt /input/food.txt
 hadoop jar hadoop001-0.0.1-SNAPSHOT.jar hadoop001/[nome metodo main] /food/input/food.txt /food/output/[nome metodo]_result /food/[nome metodo]_temp
 ```
 - Can see the result in localhost:50070 in section "Browse Directory"
+
+**Delete hadoop input dir:**
+
+```hadoop dfs -rmr /[nome dir]```
