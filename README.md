@@ -63,7 +63,18 @@ Progettare e realizzare in: (a) MapReduce, (b) Hive e (c) Spark:
 	git pull origin pull
 	```
 
+## Install Hadoop
+
+......
+
+## Environment variable
+
+......
+
 ## Use Project
+
+**Start project:**
+
 - Start Hadoop with:
 ```
 hstart
