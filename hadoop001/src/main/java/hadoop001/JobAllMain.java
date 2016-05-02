@@ -4,6 +4,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -18,8 +19,8 @@ public class JobAllMain extends Configured implements Tool{
 
 	public int run(String[] args) throws Exception {
 		Path input = new Path(args[0]);
-		Path temp1 = new Path("temp4");
 		Path output = new Path(args[1]);
+		Path temp1 = new Path(args[2]);
 		Configuration conf = getConf();
 
 		Job job1 = new Job(conf, "Job1Main");
@@ -44,6 +45,7 @@ public class JobAllMain extends Configured implements Tool{
 		}
 
 		Job job2 = new Job(conf, "Job2Main");
+		
 		FileInputFormat.setInputPaths(job2, temp1);
 		FileOutputFormat.setOutputPath(job2, output);
 
@@ -70,8 +72,8 @@ public class JobAllMain extends Configured implements Tool{
 	}
 
 	public static void main(String[] args) throws Exception {
-		if (args.length != 2) {
-			System.out.println("Usage: TopKRecords /path/to/citation.txt output_dir");
+		if (args.length != 3) {
+			System.out.println("Usage: JobAllMain /path/to/food.txt output_dir");
 			System.exit(-1);
 		}
 		int res = ToolRunner.run(new Configuration(), new JobAllMain(), args);
