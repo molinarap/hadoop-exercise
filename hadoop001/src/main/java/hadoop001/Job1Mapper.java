@@ -7,7 +7,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class FoodMaxMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class Job1Mapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 
 	private static final IntWritable ONE = new IntWritable(1);
 	private static final String MISSING = "";

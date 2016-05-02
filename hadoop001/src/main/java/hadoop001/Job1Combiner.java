@@ -6,7 +6,7 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class FoodMaxCombiner extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class Job1Combiner extends Reducer<Text, IntWritable, Text, IntWritable> {
     
     private final static IntWritable SUM = new IntWritable();
     

@@ -8,16 +8,17 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class FoodMaxMain {
+public class Job1Main {
 
     public static void main(String[] args) throws Exception {
     	
-    	Job job = new Job(new Configuration(), "FoodMaxMain");
+    	Job job = new Job(new Configuration(), "FoodJob1Main");
 
-		job.setJarByClass(FoodMaxMain.class);
+		job.setJarByClass(Job1Main.class);
 		
-		job.setMapperClass(FoodResultMapper.class);
-		job.setReducerClass(FoodResultReducer.class);
+		job.setMapperClass(Job1Mapper.class);
+		job.setCombinerClass(Job1Combiner.class);
+		job.setReducerClass(Job1Reducer.class);
 
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
@@ -26,5 +27,6 @@ public class FoodMaxMain {
 		job.setOutputValueClass(IntWritable.class);
 
 		job.waitForCompletion(true);
+		
     }
 }
