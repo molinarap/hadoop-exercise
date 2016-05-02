@@ -2,16 +2,17 @@ package hadoop001;
 
 import java.io.IOException;
 
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class Job2Mapper extends Mapper<Text, Text, Text, Text> {
+public class Job2Mapper extends Mapper<LongWritable, Text, Text, Text> {
 	
 	private Text d = new Text();
 	private Text p = new Text();
 	
 	@Override
-	public void map(Text key, Text value, Context context) throws IOException, InterruptedException {
+	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
 		String line = value.toString();
 		String date = null;
