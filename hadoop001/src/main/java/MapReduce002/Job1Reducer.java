@@ -16,9 +16,21 @@ public class Job1Reducer extends Reducer<Text, IntWritable, Text, Text> {
         for (IntWritable val : values) {
             v = val.get();
         }
-        String new_value = new_item[1] + " " + v;
+       
+        //new_item[0] = 2015-1
+        //new_item[1] = acqua/3 
+        
         String new_date = new_item[0];
-        context.write(new Text(new_date), new Text(new_value));
+
+        String new_value = new_item[1];
+        
+        String[] namePrice = new_value.split("/");
+        String nameProd = namePrice[0];
+		String priceProd = namePrice[1];
+		int totalPriceProd = Integer.parseInt(priceProd) * v;
+		
+        String datePrice = new_date + ":" + totalPriceProd;
+        context.write(new Text(nameProd), new Text(datePrice));
     }
     
 }
