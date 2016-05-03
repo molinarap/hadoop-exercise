@@ -96,14 +96,13 @@ hdfs dfs -put [nome file].txt /input/food.txt
 - Insert name of main method in command line and launch by terminal:
 
 ```
-hadoop jar hadoop001-0.0.1-SNAPSHOT.jar MapReduce001/JobAllMain /food/input/food.txt /food/listFood/output/[nome metodo main]_result /food/listFood/temp/[nome metodo main]_temp
+hadoop jar hadoop001-0.0.1-SNAPSHOT.jar MapReduce001/JobAllMain /food/input/food.txt /food/listFood/output/listFood_result /food/listFood/temp/listFood_temp
 ```
 
 or
 
 ```
-hadoop jar hadoop001-0.0.1-SNAPSHOT.jar MapReduce002/JobAllMain /food/input/price.txt /food/output/[nome metodo]_result
-
+hadoop jar hadoop001-0.0.1-SNAPSHOT.jar MapReduce002/JobAllMain /food/input/price.txt /food/priceFood/output/priceFood_result /food/priceFood/temp/priceFood_temp
 ```
 
 - Can see the result in localhost:50070 in section "Browse Directory"
