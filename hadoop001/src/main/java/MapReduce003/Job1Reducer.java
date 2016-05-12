@@ -3,22 +3,29 @@ package MapReduce003;
 import java.io.IOException;
 
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class Job1Reducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+public class Job1Reducer extends Reducer<Text, IntWritable, Text, Text> {
     
-    private final static IntWritable SUM = new IntWritable();
+    Text p = new Text();
     
     @Override
     public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
 
-        int sum = 0;
+    	String[] k = key.toString().split("\t");
+    	String couple = k[0];
+    	double count = Double.parseDouble(k[1]);
+    	
+        int v = 0;
         for (IntWritable val : values) {
-          sum += val.get();
+          v += val.get();
         }
-        SUM.set(sum);
-        context.write(new Text(key.toString()), SUM);
+        double l = v;
+        double sum = (l/count)*100;
+        p.set(sum+"%");
+        context.write(new Text(couple), p);
     }
     
 }

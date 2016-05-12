@@ -17,6 +17,7 @@ public class Job1Main {
 		job.setJarByClass(Job1Main.class);
 		
 		job.setMapperClass(Job1Mapper.class);
+		job.setCombinerClass(Job1Combiner.class);
 		job.setReducerClass(Job1Reducer.class);
 
 		FileInputFormat.addInputPath(job, new Path(args[0]));
