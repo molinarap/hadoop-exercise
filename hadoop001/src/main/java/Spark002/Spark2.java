@@ -2,16 +2,12 @@ package Spark002;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.Text;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
-import Spark001.Spark1;
 import scala.Tuple2;
 
 public class Spark2 {
