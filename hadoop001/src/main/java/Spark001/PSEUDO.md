@@ -6,8 +6,8 @@ PRENDO IN INPUT UN FILE
 
 CREO UNA RDD foods SPLITTANDO A "/n" PER LAVORARE SULLE RIGHE DEL FILE
 
-CREO UN RDD dateFoods
-	SCORRO foods 
+SCORRO foods PER CREARE UN MAPPA(Tuple2) dateFoods
+
 	allFood <- INIALIZZO UNA LISTA 
 
 	IF line HA "," NELLA POSIZIONE 8
@@ -31,7 +31,7 @@ CREO UN RDD dateFoods
 			all <- date + " " + arrayProd[i]
 			AGGIUNGO all ALLA  LISTA allFood
 
-	RETURN allFood
+RETURN allFood
 
 RETURN dateFoods (UGUALE A allFood)
 
@@ -44,27 +44,26 @@ SCORRO mapFoods PER CREARE UN MAPPA(Tuple2) listFoods
 RETURN listFoods
 
 
-CREO UN RDD foodOrder
-	SCORRO listFoods PER CREARE UN MAPPA(Tuple2) mapFoods
+SCORRO listFoods PER CREARE UN MAPPA(Tuple2) foodOrder
 
-		line <- listFoods.element
+	line <- listFoods.element
 
-		result <- TUPLE2
+	result <- TUPLE2
 
-		prodDateNameTimeFalse SPLITTO A " "	line
+	prodDateNameTimeFalse SPLITTO A " "	line
 
-		prodDate <- prodDateNameTimeFalse[0]
-		prodNameTimeFalse <- prodDateNameTimeFalse[1]
+	prodDate <- prodDateNameTimeFalse[0]
+	prodNameTimeFalse <- prodDateNameTimeFalse[1]
 
-		prodNameTime SPLITTO A "," prodNameTimeFalse 37,
+	prodNameTime SPLITTO A "," prodNameTimeFalse 37,
 
-		priceInMonth <- prodNameTime[0] + " " + prodNameTime[1]
+	priceInMonth <- prodNameTime[0] + " " + prodNameTime[1]
 
-		result <- Tuple2<prodDate, priceInMonth>
+	result <- Tuple2<prodDate, priceInMonth>
 
-		RETURN result
+	RETURN result
 
-	SCORRO mapFoods PER CREARE UN MAPPA(Tuple2) result2
-		KEY=mapFoods.key E VALUES= VALUES + ", " + mapFoods.value
+SCORRO mapFoods PER CREARE UN MAPPA(Tuple2) result2
+	KEY=mapFoods.key E VALUES= VALUES + ", " + mapFoods.value
 
-	RETURN result2
+RETURN result2

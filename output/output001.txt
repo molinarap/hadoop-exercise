@@ -1,0 +1,12 @@
+2015-1	insalata 34, pane 34, cioccolato 33, vino 32, acqua 31
+2015-10	parmiggiano 35, uova 31, cioccolato 31, pomodoro 30, formaggio 30
+2015-11	latte 29, mozzarella 29, parmiggiano 29, uova 26, dolce 26
+2015-12	latte 31, cioccolato 30, birra 29, uova 28, melanzane 28
+2015-2	parmiggiano 39, piadina 34, uova 34, pesce 34, vino 33
+2015-3	vino 33, pomodoro 32, pesce 32, mozzarella 32, piadina 31
+2015-4	insalata 36, uova 35, melanzane 35, pesce 34, mozzarella 34
+2015-5	pane 42, mozzarella 37, parmiggiano 37, melanzane 36, formaggio 35
+2015-6	pesce 40, pomodoro 37, insalata 37, piadina 36, pane 36
+2015-7	pesce 38, insalata 38, vino 36, birra 36, dolce 36
+2015-8	acqua 38, mozzarella 36, pesce 35, parmiggiano 35, dolce 32
+2015-9	uova 33, dolce 32, formaggio 32, melanzane 32, pesce 32

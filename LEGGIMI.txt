@@ -1,0 +1,17 @@
+Ogni esercizio ha un suo package Nome00x e all'interno è presente la PSEUDOCODIFICA dell'esercizio nel file README.md della directory
+
+Nella directory input ci stanno i file di partenza:
+- food.txt <--- primo e terzo esercizio
+- price.txt <--- secondo esecizio
+
+Nella cartella "jar" è presente il file eseguibile di tutto il progetto con le seguenti class:
+- MapReduce001/JobAllMain
+- MapReduce003/JobAllMain
+- MapReduce003/Job1Main
+- Spark001.Spark1
+- Spark002.Spark2
+- Spark003.Spark3
+
+Per quanto riguarda gli esercizi Hive è presente la PSEUDOCODIFICA sempre all'interno dei package Hive00x
+
+Nella directory output ci sono i file fuoriusciti facendo eseguire i 3 esercizi (il file temp è un file intermedio che fa parte del secondo esercizio)
